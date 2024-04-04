@@ -1,2 +1,8 @@
-# elasticsearch-analyzers-bdrc
-Analyzers for languages used at BDRC (Tibetan, Chinese, Sanskrit, Pali, Burmese, Khmer) for ElasticSearch / OpenSearch
+# analysis-tibetan
+
+Tibetan analyzer for Opensearch and Elasticsearch
+
+https://github.com/lionsoul2014/jcseg
+https://github.com/infinilabs/analysis-stconvert/
+
+https://docs.aws.amazon.com/opensearch-service/latest/developerguide/custom-packages.html

@@ -1,16 +1,17 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
   <modelVersion>4.0.0</modelVersion>
-  <groupId>bdrc.io</groupId>
-  <artifactId>search-analyzers</artifactId>
+  <groupId>io.bdrc</groupId>
+  <artifactId>analysis-tibetan</artifactId>
   <version>0.0.1-SNAPSHOT</version>
   <packaging>jar</packaging>
   <properties>
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     <maven.compiler.source>11</maven.compiler.source>
     <maven.compiler.target>11</maven.compiler.target>
+    <opensearch.version>2.1.3</opensearch.version>
   </properties>
-  <name>search-analyzers</name>
-  <description>BDRC Lucene analyzers packages for Elastopensearch</description>
+  <name>analysis-tibetan</name>
+  <description>Tibetan analysis packages for Opensearch and Elasticsearch</description>
    <dependencies>
     <dependency>
         <groupId>io.bdrc.lucene</groupId>
@@ -23,28 +24,16 @@
       </exclusions>
       <version>1.8.0</version>
     </dependency>
-    <dependency>
-        <groupId>io.bdrc.lucene</groupId>
-        <artifactId>lucene-sa</artifactId>
-        <exclusions>
-        <exclusion>
-          <groupId>junit</groupId>
-          <artifactId>junit</artifactId>
-        </exclusion>
-      </exclusions>
-      <version>1.3.0</version>
-    </dependency>
   </dependencies>
   <build>
-    <finalName>editserv</finalName>
     <plugins>
       <plugin>
         <groupId>org.apache.maven.plugins</groupId>
         <artifactId>maven-compiler-plugin</artifactId>
         <inherited>true</inherited>
         <configuration>
-          <source>1.8</source>
-          <target>1.8</target>
+          <source>11</source>
+          <target>11</target>
         </configuration>
         <version>3.13.0</version>
       </plugin>
