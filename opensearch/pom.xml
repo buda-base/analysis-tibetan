@@ -11,12 +11,14 @@
     <url>https://github.com/buda-base/analysis-tibetan</url>
 
     <artifactId>opensearch-analysis-tibetan</artifactId>
-    <description>Tibetan analyzers for Opensearch</description>
+    <description>Tibetan analysis components for Opensearch</description>
     <packaging>jar</packaging>
 
 
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <maven.compiler.source>11</maven.compiler.source>
+        <maven.compiler.target>11</maven.compiler.target>
         <opensearch.plugin.classname>io.bdrc.opensearch.TibetanAnalyzersPlugin</opensearch.plugin.classname>
         <opensearch.plugin.name>analysis-tibetan</opensearch.plugin.name>
         <opensearch.plugin.jvm>true</opensearch.plugin.jvm>
@@ -31,7 +33,62 @@
             <scope>compile</scope>
         </dependency>
 
+    <dependency>
+            <groupId>org.apache.lucene</groupId>
+            <artifactId>lucene-core</artifactId>
+            <scope>provided</scope>
+            <version>${lucene.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>org.apache.lucene</groupId>
+            <artifactId>lucene-analysis-common</artifactId>
+            <scope>provided</scope>
+            <version>${lucene.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>io.bdrc.lucene</groupId>
+            <artifactId>lucene-bo</artifactId>
+            <version>${lucene.bo.version}</version>
+        </dependency>
+
     </dependencies>
+    <profiles>
+        <profile>
+            <id>include-deps</id>
+            <activation>
+                <property>
+                    <name>includeDeps</name>
+                    <value>true</value>
+                </property>
+            </activation>
+            <build>
+                <plugins>
+                    <plugin>
+                        <groupId>org.apache.maven.plugins</groupId>
+                        <artifactId>maven-shade-plugin</artifactId>
+                        <version>3.3.0</version>
+                        <executions>
+                            <execution>
+                                <phase>package</phase>
+                                <goals>
+                                    <goal>shade</goal>
+                                </goals>
+                                <configuration>
+                                    <artifactSet>
+                                        <includes>
+                                            <include>io.bdrc.ewtsconverter:ewts-converter</include>
+                                            <include>io.bdrc.lucene:stemmer</include>
+                                            <include>io.bdrc.lucene:lucene-bo</include>
+                                        </includes>
+                                    </artifactSet>
+                                </configuration>
+                            </execution>
+                        </executions>
+                    </plugin>
+                </plugins>
+            </build>
+        </profile>
+    </profiles>
     <build>
         <plugins>
             <plugin>

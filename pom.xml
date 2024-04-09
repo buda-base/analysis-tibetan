@@ -23,6 +23,17 @@
     <maven.compiler.source>11</maven.compiler.source>
     <maven.compiler.target>11</maven.compiler.target>
     <opensearch.version>2.13.0</opensearch.version>
+    <lucene.version>9.10.0</lucene.version>
+    <lucene.bo.version>1.9.0</lucene.bo.version>
+    <!-- for Lucene / OpenSearch / ElasticSearch version compatibility, see
+
+    https://github.com/opensearch-project/OpenSearch/blob/main/libs/core/src/main/java/org/opensearch/Version.java#L74
+
+    https://opensearch.org/docs/2.13/install-and-configure/upgrade-opensearch/index/
+
+
+
+    -->
   </properties>
     <developers>
         <developer>
@@ -47,19 +58,6 @@
         <developerConnection>scm:git:ssh://github.com:buda-base/analysis-tibetan.git</developerConnection>
         <url>http://github.com/buda-base/analysis-tibetan/tree/master</url>
     </scm>
-   <dependencies>
-    <dependency>
-        <groupId>io.bdrc.lucene</groupId>
-        <artifactId>lucene-bo</artifactId>
-        <exclusions>
-        <exclusion>
-          <groupId>junit</groupId>
-          <artifactId>junit</artifactId>
-        </exclusion>
-      </exclusions>
-      <version>1.8.0</version>
-    </dependency>
-  </dependencies>
       <profiles>
         <profile>
             <id>release-sign-artifacts</id>
