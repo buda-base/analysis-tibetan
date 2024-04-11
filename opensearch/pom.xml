@@ -97,6 +97,7 @@
                                             <include>io.bdrc.lucene:lucene-bo</include>
                                             <include>org.apache.logging.log4j:log4j-slf4j-impl</include>
                                             <include>org.slf4j:slf4j-api</include>
+                                            <include>org.apache.commons:commons-lang3</include>
                                         </includes>
                                     </artifactSet>
                                 </configuration>
