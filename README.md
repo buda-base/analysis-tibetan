@@ -78,7 +78,7 @@ POST /tibetantest/_analyze
   "tokenizer" : "tibetan",
   "filter" : ["tibetan-lenient"],
   "char_filter" : ["tibetan-ewts-lenient"],
-  "text" : "ka kha ga"
+  "text" : "ka khA ga"
 }
 ```
 
