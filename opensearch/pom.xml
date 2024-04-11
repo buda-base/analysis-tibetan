@@ -22,6 +22,7 @@
         <opensearch.plugin.classname>io.bdrc.opensearch.TibetanAnalyzersPlugin</opensearch.plugin.classname>
         <opensearch.plugin.name>analysis-tibetan</opensearch.plugin.name>
         <opensearch.plugin.jvm>true</opensearch.plugin.jvm>
+        <opensearch.plugin.jvm>true</opensearch.plugin.jvm>
         <opensearch.assembly.descriptor>${project.basedir}/src/main/assemblies/plugin.xml</opensearch.assembly.descriptor>
     </properties>
 
@@ -46,11 +47,26 @@
             <version>${lucene.version}</version>
         </dependency>
         <dependency>
+            <groupId>org.apache.lucene</groupId>
+            <artifactId>lucene-analysis-common</artifactId>
+            <scope>provided</scope>
+            <version>${lucene.version}</version>
+        </dependency>
+        <dependency>
+           <groupId>org.apache.logging.log4j</groupId>
+           <artifactId>log4j-slf4j-impl</artifactId>
+           <version>2.23.1</version>
+        </dependency>
+        <dependency>
+           <groupId>org.slf4j</groupId>
+           <artifactId>slf4j-api</artifactId>
+           <version>1.7.36</version>
+        </dependency>
+        <dependency>
             <groupId>io.bdrc.lucene</groupId>
             <artifactId>lucene-bo</artifactId>
             <version>${lucene.bo.version}</version>
         </dependency>
-
     </dependencies>
     <profiles>
         <profile>
@@ -79,6 +95,8 @@
                                             <include>io.bdrc.ewtsconverter:ewts-converter</include>
                                             <include>io.bdrc.lucene:stemmer</include>
                                             <include>io.bdrc.lucene:lucene-bo</include>
+                                            <include>org.apache.logging.log4j:log4j-slf4j-impl</include>
+                                            <include>org.slf4j:slf4j-api</include>
                                         </includes>
                                     </artifactSet>
                                 </configuration>
