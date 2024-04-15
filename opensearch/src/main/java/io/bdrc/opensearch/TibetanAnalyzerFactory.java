@@ -23,7 +23,7 @@ public class TibetanAnalyzerFactory extends AbstractIndexAnalyzerProvider<Tibeta
     @Override
     public TibetanAnalyzer get() {
         try {
-            return new TibetanAnalyzer(false, this.lenient ? "" : "verbs-paba-affix", this.lenient ? "l-ot" : "min", this.inputMethod, null, null);
+            return new TibetanAnalyzer(false, this.lenient ? "" : "paba-affix", this.lenient ? "l-ot" : "min", this.inputMethod, null, null);
         } catch (IOException e) {
             // this shouldn't happen
             e.printStackTrace();

@@ -2,6 +2,10 @@
 
 Tibetan analyzer for Opensearch and Elasticsearch
 
+### Install
+
+Copy Lucene-bo's [synonyms.txt](https://github.com/buda-base/lucene-bo/blob/master/src/main/resources/synonyms.txt) into `/etc/opensearch/tibetan-synonyms.txt`
+
 ### Getting started
 
 Simple example:
@@ -26,12 +30,12 @@ PUT /tibetantest/
       "analyzer": {
         "tibetan-lenient": {
           "tokenizer": "tibetan",
-          "filter": [ "tibetan-lenient" ],
+          "filter": [ "tibetan-lenient", "tibetan-synonyms" ],
           "char_filter": [ "tibetan-lenient" ]
         },
         "tibetan-ewts-lenient": {
           "tokenizer": "tibetan",
-          "filter": [ "tibetan-lenient" ],
+          "filter": [ "tibetan-lenient", "tibetan-synonyms" ],
           "char_filter": [ "tibetan-ewts-lenient" ]
         }
       },
@@ -40,6 +44,10 @@ PUT /tibetantest/
           "type": "tibetan",
           "remove_affixes": true,
           "normalize_paba": true
+        },
+        "tibetan-synonyms": {
+          "type": "synonym_graph",
+          "synonyms_path": "tibetan-synonyms.txt"
         }
       },
       "char_filter": {
@@ -66,7 +74,7 @@ POST /tibetantest/_analyze
   "tokenizer" : "tibetan",
   "filter" : ["tibetan-lenient"],
   "char_filter" : ["tibetan-lenient"],
-  "text" : "ཀ་ཁཱ་ག"
+  "text" : "ཀ་ཁཱ་ག་སུན"
 }
 ```
 
