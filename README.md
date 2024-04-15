@@ -69,12 +69,11 @@ PUT /tibetantest/
 then test the lenient support (note that `ཁཱ` is transformed into `ཁ`):
 
 ```
-POST /tibetantest/_analyze
 {
   "tokenizer" : "tibetan",
-  "filter" : ["tibetan-lenient"],
+  "filter" : ["tibetan-lenient", "tibetan-synonyms"],
   "char_filter" : ["tibetan-lenient"],
-  "text" : "ཀ་ཁཱ་ག་སུན"
+  "text" : "ཀ་ཁཱ་ག་ཀླད་ཀོར"
 }
 ```
 
@@ -84,9 +83,9 @@ and the transliteration support:
 POST /tibetantest/_analyze
 {
   "tokenizer" : "tibetan",
-  "filter" : ["tibetan-lenient"],
+  "filter" : ["tibetan-lenient", "tibetan-synonyms"],
   "char_filter" : ["tibetan-ewts-lenient"],
-  "text" : "ka khA ga"
+  "text" : "ka khA ga klad kor"
 }
 ```
 
