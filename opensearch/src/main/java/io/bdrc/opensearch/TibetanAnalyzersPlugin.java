@@ -22,6 +22,7 @@ public class TibetanAnalyzersPlugin extends Plugin implements AnalysisPlugin {
     public Map<String, AnalysisModule.AnalysisProvider<CharFilterFactory>> getCharFilters() {
         Map<String, AnalysisModule.AnalysisProvider<CharFilterFactory>> extra = new HashMap<>();
         extra.put("tibetan", TibetanCharFilterFactory::new);
+        extra.put("simple-diacritics", SimpleDiacriticsFilterFactory::new);
         return extra;
     }
 
