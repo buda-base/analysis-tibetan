@@ -10,6 +10,7 @@
   <url>https://github.com/buda-base/analysis-tibetan</url>
   <modules>
         <module>elasticsearch</module>
+        <module>opensearch</module>
       </modules>
     <licenses>
         <license>
@@ -22,9 +23,10 @@
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     <maven.compiler.source>11</maven.compiler.source>
     <maven.compiler.target>11</maven.compiler.target>
-    <elasticsearch.version>8.13.3</elasticsearch.version>
     <lucene.version>9.10.0</lucene.version>
     <lucene.bo.version>1.9.0</lucene.bo.version>
+    <opensearch.version>2.13.0</opensearch.version>
+    <elasticsearch.version>8.13.3</elasticsearch.version>
     <!-- for Lucene / OpenSearch / ElasticSearch version compatibility, see
 
     https://github.com/opensearch-project/OpenSearch/blob/main/libs/core/src/main/java/org/opensearch/Version.java#L74
