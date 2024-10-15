@@ -40,27 +40,27 @@ PUT /tibetantest/
         },
         "tibetan-phonetic": {
           "tokenizer": "tibetan",
-          "filter": [ "tibetan-lenient", "for-tibetan-phonetic" ],
+          "filter": [ "tibetan-lenient", "tibetan-for-tibetan-phonetic" ],
           "char_filter": [ "tibetan-lenient" ]
         },
         "tibetan-for-english-phonetic": {
           "tokenizer": "tibetan",
-          "filter": [ "tibetan-lenient", "for-english-phonetic" ],
+          "filter": [ "tibetan-lenient", "tibetan-for-english-phonetic" ],
           "char_filter": [ "tibetan-lenient" ]
         },
         "ewts-phonetic": {
           "tokenizer": "tibetan",
-          "filter": [ "tibetan-lenient", "for-tibetan-phonetic" ],
+          "filter": [ "tibetan-lenient", "tibetan-for-tibetan-phonetic" ],
           "char_filter": [ "tibetan-ewts-lenient" ]
         },
         "ewts-for-english-phonetic": {
           "tokenizer": "tibetan",
-          "filter": [ "tibetan-lenient", "for-english-phonetic" ],
+          "filter": [ "tibetan-lenient", "tibetan-for-english-phonetic" ],
           "char_filter": [ "tibetan-ewts-lenient" ]
         },
-        "english-phonetic": {
-          "tokenizer": "english-phonetic",
-          "char_filter": [ "english-phonetic" ]
+        "tibetan-english-phonetic": {
+          "tokenizer": "tibetan-english-phonetic",
+          "char_filter": [ "tibetan-english-phonetic" ]
         }
       },
       "filter": {
@@ -69,11 +69,11 @@ PUT /tibetantest/
           "remove_affixes": true,
           "normalize_paba": true
         },
-        "for-english-phonetic": {
-          "type": "for-english-phonetic"
+        "tibetan-for-english-phonetic": {
+          "type": "tibetan-for-english-phonetic"
         },
-        "for-tibetan-phonetic": {
-          "type": "for-tibetan-phonetic"
+        "tibetan-for-tibetan-phonetic": {
+          "type": "tibetan-for-tibetan-phonetic"
         },
         "tibetan-synonyms": {
           "type": "synonym_graph",
@@ -85,8 +85,8 @@ PUT /tibetantest/
           "type": "tibetan",
           "lenient": true
         },
-        "english-phonetic": {
-          "type": "english-phonetic"
+        "tibetan-english-phonetic": {
+          "type": "tibetan-english-phonetic"
         },
         "tibetan-ewts-lenient": {
           "type": "tibetan",
