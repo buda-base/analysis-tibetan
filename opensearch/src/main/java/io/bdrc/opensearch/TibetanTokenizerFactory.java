@@ -9,14 +9,17 @@ import org.opensearch.index.analysis.AbstractTokenizerFactory;
 import io.bdrc.lucene.bo.TibSyllableTokenizer;
 
 public class TibetanTokenizerFactory  extends AbstractTokenizerFactory {
+    
+    private boolean splitNonStandard = false;
 
     public TibetanTokenizerFactory(final IndexSettings indexSettings, final Environment env, final String name, final Settings settings) {
         super(indexSettings, settings, name);
+        this.splitNonStandard = settings.getAsBoolean("remove_affixes", false);
     }
 
     @Override
     public Tokenizer create() {
-        return new TibSyllableTokenizer();
+        return new TibSyllableTokenizer(this.splitNonStandard);
     }
 
 }
