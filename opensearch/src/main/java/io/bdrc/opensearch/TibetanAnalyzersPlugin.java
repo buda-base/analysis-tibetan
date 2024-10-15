@@ -22,6 +22,7 @@ public class TibetanAnalyzersPlugin extends Plugin implements AnalysisPlugin {
     public Map<String, AnalysisModule.AnalysisProvider<CharFilterFactory>> getCharFilters() {
         Map<String, AnalysisModule.AnalysisProvider<CharFilterFactory>> extra = new HashMap<>();
         extra.put("tibetan", TibetanCharFilterFactory::new);
+        extra.put("english-phonetic", EnglishPhoneticCharFilterFactory::new);
         extra.put("simple-diacritics", SimpleDiacriticsFilterFactory::new);
         return extra;
     }
@@ -30,6 +31,7 @@ public class TibetanAnalyzersPlugin extends Plugin implements AnalysisPlugin {
     public Map<String, AnalysisModule.AnalysisProvider<TokenizerFactory>> getTokenizers() {
         Map<String, AnalysisModule.AnalysisProvider<TokenizerFactory>> extra = new HashMap<>();
         extra.put("tibetan", TibetanTokenizerFactory::new);
+        extra.put("english-phonetic", EnglishPhoneticTokenizerFactory::new);
         return extra;
     }
 
@@ -37,6 +39,8 @@ public class TibetanAnalyzersPlugin extends Plugin implements AnalysisPlugin {
     public Map<String, AnalysisModule.AnalysisProvider<TokenFilterFactory>> getTokenFilters() {
         Map<String, AnalysisModule.AnalysisProvider<TokenFilterFactory>> extra = new HashMap<>();
         extra.put("tibetan", TibetanTokenFilterFactory::new);
+        extra.put("for-english-phonetic", EnglishPhoneticTokenFilterFactory::new);
+        extra.put("for-tibetan-phonetic", StandardTibetanPhoneticTokenFilterFactory::new);
         return extra;
     }
 

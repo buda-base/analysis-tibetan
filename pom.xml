@@ -2,7 +2,7 @@
   <modelVersion>4.0.0</modelVersion>
   <groupId>io.bdrc</groupId>
   <artifactId>analysis-tibetan</artifactId>
-  <version>0.0.1-SNAPSHOT</version>
+  <version>0.2.0-SNAPSHOT</version>
   <packaging>pom</packaging>
   <name>analysis-tibetan</name>
   <inceptionYear>2024</inceptionYear>
@@ -22,9 +22,9 @@
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     <maven.compiler.source>11</maven.compiler.source>
     <maven.compiler.target>11</maven.compiler.target>
-    <opensearch.version>2.13.0</opensearch.version>
+    <opensearch.version>2.16.0</opensearch.version>
     <lucene.version>9.10.0</lucene.version>
-    <lucene.bo.version>1.9.0</lucene.bo.version>
+    <lucene.bo.version>2.0.0</lucene.bo.version>
     <!-- for Lucene / OpenSearch / ElasticSearch version compatibility, see
 
     https://github.com/opensearch-project/OpenSearch/blob/main/libs/core/src/main/java/org/opensearch/Version.java#L74

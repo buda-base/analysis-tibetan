@@ -37,6 +37,30 @@ PUT /tibetantest/
           "tokenizer": "tibetan",
           "filter": [ "tibetan-lenient", "tibetan-synonyms" ],
           "char_filter": [ "tibetan-ewts-lenient" ]
+        },
+        "tibetan-phonetic": {
+          "tokenizer": "tibetan",
+          "filter": [ "tibetan-lenient", "for-tibetan-phonetic" ],
+          "char_filter": [ "tibetan-lenient" ]
+        },
+        "tibetan-for-english-phonetic": {
+          "tokenizer": "tibetan",
+          "filter": [ "tibetan-lenient", "for-english-phonetic" ],
+          "char_filter": [ "tibetan-lenient" ]
+        },
+        "ewts-phonetic": {
+          "tokenizer": "tibetan",
+          "filter": [ "tibetan-lenient", "for-tibetan-phonetic" ],
+          "char_filter": [ "tibetan-ewts-lenient" ]
+        },
+        "ewts-for-english-phonetic": {
+          "tokenizer": "tibetan",
+          "filter": [ "tibetan-lenient", "for-english-phonetic" ],
+          "char_filter": [ "tibetan-ewts-lenient" ]
+        },
+        "english-phonetic": {
+          "tokenizer": "english-phonetic",
+          "char_filter": [ "english-phonetic" ]
         }
       },
       "filter": {
@@ -44,6 +68,12 @@ PUT /tibetantest/
           "type": "tibetan",
           "remove_affixes": true,
           "normalize_paba": true
+        },
+        "for-english-phonetic": {
+          "type": "for-english-phonetic"
+        },
+        "for-tibetan-phonetic": {
+          "type": "for-tibetan-phonetic"
         },
         "tibetan-synonyms": {
           "type": "synonym_graph",
@@ -54,6 +84,9 @@ PUT /tibetantest/
         "tibetan-lenient": {
           "type": "tibetan",
           "lenient": true
+        },
+        "english-phonetic": {
+          "type": "english-phonetic"
         },
         "tibetan-ewts-lenient": {
           "type": "tibetan",
