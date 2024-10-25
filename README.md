@@ -45,7 +45,7 @@ PUT /tibetantest/
         },
         "tibetan-for-english-phonetic": {
           "tokenizer": "tibetan",
-          "filter": [ "tibetan-lenient", "tibetan-for-english-phonetic" ],
+          "filter": [ "tibetan-for-english-phonetic" ],
           "char_filter": [ "tibetan-lenient" ]
         },
         "ewts-phonetic": {
@@ -55,7 +55,7 @@ PUT /tibetantest/
         },
         "ewts-for-english-phonetic": {
           "tokenizer": "tibetan",
-          "filter": [ "tibetan-lenient", "tibetan-for-english-phonetic" ],
+          "filter": [ "tibetan-for-english-phonetic" ],
           "char_filter": [ "tibetan-ewts-lenient" ]
         },
         "tibetan-english-phonetic": {
