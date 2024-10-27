@@ -10,11 +10,11 @@ import io.bdrc.lucene.bo.TibSyllableTokenizer;
 
 public class TibetanTokenizerFactory  extends AbstractTokenizerFactory {
     
-    private boolean splitNonStandard = false;
+    private boolean splitNonStandard = true;
 
     public TibetanTokenizerFactory(final IndexSettings indexSettings, final Environment env, final String name, final Settings settings) {
         super(indexSettings, settings, name);
-        this.splitNonStandard = settings.getAsBoolean("remove_affixes", false);
+        this.splitNonStandard = settings.getAsBoolean("split_non_standard", true);
     }
 
     @Override
