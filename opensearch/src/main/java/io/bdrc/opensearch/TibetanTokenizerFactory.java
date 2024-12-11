@@ -11,15 +11,17 @@ import io.bdrc.lucene.bo.TibSyllableTokenizer;
 public class TibetanTokenizerFactory  extends AbstractTokenizerFactory {
     
     private boolean splitNonStandard = true;
+    private boolean keepShad = true;
 
     public TibetanTokenizerFactory(final IndexSettings indexSettings, final Environment env, final String name, final Settings settings) {
         super(indexSettings, settings, name);
         this.splitNonStandard = settings.getAsBoolean("split_non_standard", true);
+        this.keepShad = settings.getAsBoolean("keep_shad", false);
     }
 
     @Override
     public Tokenizer create() {
-        return new TibSyllableTokenizer(this.splitNonStandard);
+        return new TibSyllableTokenizer(this.splitNonStandard, this.keepShad);
     }
 
 }
