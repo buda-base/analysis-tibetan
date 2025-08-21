@@ -10,8 +10,8 @@
     <modelVersion>4.0.0</modelVersion>
     <url>https://github.com/buda-base/analysis-tibetan</url>
 
-    <artifactId>opensearch-analysis-tibetan</artifactId>
-    <description>Tibetan analysis components for Opensearch</description>
+    <artifactId>elasticsearch-analysis-tibetan</artifactId>
+    <description>Tibetan analysis components for elasticsearch</description>
     <packaging>jar</packaging>
 
 
@@ -19,22 +19,20 @@
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <maven.compiler.source>11</maven.compiler.source>
         <maven.compiler.target>11</maven.compiler.target>
-        <opensearch.plugin.classname>io.bdrc.opensearch.TibetanAnalyzersPlugin</opensearch.plugin.classname>
-        <opensearch.plugin.name>analysis-tibetan</opensearch.plugin.name>
-        <opensearch.plugin.jvm>true</opensearch.plugin.jvm>
-        <opensearch.plugin.jvm>true</opensearch.plugin.jvm>
-        <opensearch.assembly.descriptor>${project.basedir}/src/main/assemblies/plugin.xml</opensearch.assembly.descriptor>
+        <elasticsearch.plugin.classname>io.bdrc.elasticsearch.TibetanAnalyzersPlugin</elasticsearch.plugin.classname>
+        <elasticsearch.plugin.name>analysis-tibetan</elasticsearch.plugin.name>
+        <elasticsearch.plugin.jvm>true</elasticsearch.plugin.jvm>
+        <elasticsearch.plugin.jvm>true</elasticsearch.plugin.jvm>
+        <elasticsearch.assembly.descriptor>${project.basedir}/src/main/assemblies/plugin.xml</elasticsearch.assembly.descriptor>
     </properties>
-
     <dependencies>
         <dependency>
-            <groupId>org.opensearch</groupId>
-            <artifactId>opensearch</artifactId>
-            <version>${opensearch.version}</version>
+            <groupId>org.elasticsearch</groupId>
+            <artifactId>elasticsearch</artifactId>
+            <version>${elasticsearch.version}</version>
             <scope>compile</scope>
         </dependency>
-
-    <dependency>
+        <dependency>
             <groupId>org.apache.lucene</groupId>
             <artifactId>lucene-core</artifactId>
             <scope>provided</scope>
@@ -117,7 +115,7 @@
                     <appendAssemblyId>false</appendAssemblyId>
                     <outputDirectory>${project.build.directory}/releases/</outputDirectory>
                     <descriptors>
-                        <descriptor>opensearch/src/main/assemblies/plugin.xml</descriptor>
+                        <descriptor>elasticsearch/src/main/assemblies/plugin.xml</descriptor>
                     </descriptors>
                 </configuration>
                 <executions>

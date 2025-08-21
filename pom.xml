@@ -2,7 +2,7 @@
   <modelVersion>4.0.0</modelVersion>
   <groupId>io.bdrc</groupId>
   <artifactId>analysis-tibetan</artifactId>
-  <version>0.2.2-SNAPSHOT</version>
+  <version>1.0.0</version>
   <packaging>pom</packaging>
   <name>analysis-tibetan</name>
   <inceptionYear>2024</inceptionYear>
@@ -10,6 +10,7 @@
   <url>https://github.com/buda-base/analysis-tibetan</url>
   <modules>
         <module>opensearch</module>
+        <module>elasticsearch</module>
       </modules>
     <licenses>
         <license>
@@ -23,6 +24,7 @@
     <maven.compiler.source>11</maven.compiler.source>
     <maven.compiler.target>11</maven.compiler.target>
     <opensearch.version>2.16.0</opensearch.version>
+    <elasticsearch.version>9.1.0</elasticsearch.version>
     <lucene.version>9.10.0</lucene.version>
     <lucene.bo.version>2.2.0</lucene.bo.version>
     <!-- for Lucene / OpenSearch / ElasticSearch version compatibility, see
@@ -43,16 +45,6 @@
             <organizationUrl>https://www.bdrc.io</organizationUrl>
         </developer>
     </developers>
-    <distributionManagement>
-        <snapshotRepository>
-            <id>ossrh</id>
-            <url>https://oss.sonatype.org/content/repositories/snapshots</url>
-        </snapshotRepository>
-        <repository>
-            <id>ossrh</id>
-            <url>https://oss.sonatype.org/service/local/staging/deploy/maven2</url>
-        </repository>
-    </distributionManagement>
     <scm>
         <connection>scm:git:git://github.com/buda-base/analysis-tibetan.git</connection>
         <developerConnection>scm:git:ssh://github.com:buda-base/analysis-tibetan.git</developerConnection>
@@ -124,6 +116,15 @@
     </profiles>
   <build>
     <plugins>
+            <plugin>
+              <groupId>org.sonatype.central</groupId>
+              <artifactId>central-publishing-maven-plugin</artifactId>
+              <version>0.8.0</version>
+              <extensions>true</extensions>
+              <configuration>
+                <publishingServerId>central-portal</publishingServerId>
+              </configuration>
+            </plugin>
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-source-plugin</artifactId>
